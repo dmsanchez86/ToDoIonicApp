@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'; 
+import { Injectable } from '@angular/core';
 import { List } from '../models/';
 
 @Injectable()
 
-export class ToDoService {
+export class DeseosService {
     lists: List[] = [];
 
     constructor() {
