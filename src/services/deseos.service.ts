@@ -1,15 +1,38 @@
 import { Injectable } from '@angular/core';
-import { List } from '../models/';
+import { Lista } from '../models';
 
 @Injectable()
-
 export class DeseosService {
-    lists: List[] = [];
+    listas: Lista[] = [];
 
     constructor() {
-        const list1 = new List('Recolectar piedras del infinito');
-        const list2 = new List('Heroes a Vencer');
-
-        this.lists.push(list1, list2);
+      this.cargarStorage();
     }
+
+    agregarLista( lista: Lista ) {
+        this.listas.push( lista );
+
+        this.guardarStorage();
+    }
+
+    borrarLista( lista: Lista ) {
+        this.listas = this.listas.filter( listaData => listaData.id !== lista.id );
+
+        this.guardarStorage();
+    }
+
+
+    guardarStorage() {
+        localStorage.setItem('data', JSON.stringify( this.listas ) );
+    }
+
+    cargarStorage() {
+        if( localStorage.getItem('data') ) {
+            this.listas = JSON.parse(localStorage.getItem('data'));
+        } else {
+            this.listas = [];
+        }
+    }
+
+
 }
