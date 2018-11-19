@@ -1,12 +1,12 @@
-import { ListItem } from "./index";
+import { ListaItem } from "./index";
 
-export class List {
+export class Lista {
     id: number;
     title: string;
     createdAt: Date;
     finishAt: Date;
     finished: boolean;
-    items: ListItem[];
+    items: ListaItem[];
 
     constructor(title: string){
         this.title = title;
