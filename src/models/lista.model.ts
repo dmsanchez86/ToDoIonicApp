@@ -1,20 +1,20 @@
-import { ListaItem } from "./index";
+import { ListaItem } from './lista-item.model';
 
 export class Lista {
     id: number;
-    title: string;
-    createdAt: Date;
-    finishAt: Date;
-    finished: boolean;
+    titulo: string;
+    creadaEn: Date;
+    terminadaEn: Date;
+    terminada: boolean;
     items: ListaItem[];
 
-    constructor(title: string){
-        this.title = title;
+    constructor( titulo: string ) {
+      this.titulo = titulo;
 
-        this.finished = false;
-        this.createdAt = new Date();
-        this.items = [];
+      this.terminada = false;
+      this.creadaEn = new Date();
+      this.items = [];
 
-        this.id = new Date().getTime();
+      this.id = new Date().getTime();
     }
 }
