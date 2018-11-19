@@ -4,21 +4,31 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { PendientsPage } from '../pages/pendients/pendients';
-import { FinishersPage } from '../pages/finishers/finishers';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+// Componentes
+import { PendientesPage } from '../pages/pendientes/pendientes.component';
+import { TerminadosPage } from '../pages/terminados/terminados.component';
+import { AgregarPage } from '../pages/agregar/agregar.component';
+import { ListasComponent } from '../components/listas.component';
+
 // servicios
-import { ToDoService } from '../services/todo.service';
+import { DeseosService } from '../services/deseos.service';
+
+// Pipes
+import { FiltroCompletadoPipe } from '../pipes/filtro-completado/filtro-completado';
 
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
-    PendientsPage,
-    FinishersPage
+    PendientesPage,
+    TerminadosPage,
+    AgregarPage,
+    FiltroCompletadoPipe,
+    ListasComponent
   ],
   imports: [
     BrowserModule,
@@ -28,13 +38,14 @@ import { ToDoService } from '../services/todo.service';
   entryComponents: [
     MyApp,
     TabsPage,
-    PendientsPage,
-    FinishersPage
+    PendientesPage,
+    TerminadosPage,
+    AgregarPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    ToDoService,
+    DeseosService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
